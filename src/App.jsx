@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const App = () => {
   gsap.registerPlugin(useGSAP);
+  gsap.registerPlugin(ScrollTrigger);
   const [showContent, setshowContent] = useState(false);
 
   useGSAP(() => {
@@ -29,7 +31,6 @@ const App = () => {
       },
     });
   });
-
   useGSAP(()=>{
     const main= document.querySelector(".main");
     main?.addEventListener("mousemove",function(e){
@@ -45,7 +46,6 @@ const App = () => {
         x:xMove
       })
     })
-
   },[showContent])
   return (
     <>
@@ -102,6 +102,20 @@ const App = () => {
             <div className=" bg-gradient-to-t from-black to-whitebottom w-full bottom-0 px-10 py-10 absolute">
               <img src="./ps5.png" alt="ps5" className="h-[45px] top-1/2 left-1/2 absolute -translate-y-1/2 -translate-x-1/2 "/>
             </div>
+          </div>
+          <div className="w-full h-screen flex items-center justify-center bg-black text-white ">
+            <div className="center w-full h-[80%]">
+              <div className="leftImg relative w-1/2 -top-1/9 left-1/30 scale-80  ">
+                 <img src="./imag.png" alt="" className="imag absolute " />
+              </div>
+              <div className="lines">
+                <h1 className="text-6xl ml-[50rem] p-4">Stop HUnting</h1>
+                <h1 className="text-6xl ml-[50rem] p-5">Stop Crueling</h1>
+                <p className="ml-[50rem] text-orange-400 p-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br />
+                Ut, sequi. Atque, quo? Eius, adipisci consequuntur? Quibusdam <br />aut illum tenetur voluptatem?</p>
+              </div>
+            </div>
+
           </div>
         </div>
       )}
